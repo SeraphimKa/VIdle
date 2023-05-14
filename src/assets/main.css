@@ -1,0 +1,56 @@
+@import "./base.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#app {
+  width: stretch;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  font-weight: normal;
+  height: 100vh;
+  background: var(--c-middle);
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  min-height: 100px;
+  margin-left: clamp(2rem, 5vh, 4rem);
+  margin-right: clamp(2rem, 5vh, 4rem);
+  padding: 15px;
+}
+
+.selection-item {
+  flex-grow: 1;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: clamp(1rem, 2vh, 2rem);
+  background: var(--c-dark);
+  color: var(--c-primary);
+  text-align: center;
+  border-radius: 15px;
+  transition: color 0.3s, background-color 0.3s;
+  text-shadow: 1px 1px 1px var(--c-pr-shade4);
+}
+.selection-item:hover {
+  color: var(--c-secondary);
+}
+
+button {
+  cursor: pointer;
+  background: var(--c-secondary);
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  min-width: 78px;
+}
+
+button:hover {
+  background: var(--c-primary);
+}
