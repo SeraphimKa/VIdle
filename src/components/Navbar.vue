@@ -10,11 +10,11 @@ import { RouterLink } from 'vue-router'
                 VIdle
             </RouterLink>
             <ul class="navitems">
-                <RouterLink class="selection-item" to="/map">Map</RouterLink>
-                <RouterLink class="selection-item" to="/character">Character</RouterLink>
-                <RouterLink class="selection-item" to="/inventory">Inventory</RouterLink>
-                <RouterLink class="selection-item" to="/">Item</RouterLink>
-                <RouterLink class="selection-item" to="/">Item</RouterLink>
+                <RouterLink active-class="active" class="selection-item" to="/map">Map</RouterLink>
+                <RouterLink active-class="active" class="selection-item" to="/character">Character</RouterLink>
+                <RouterLink active-class="active" class="selection-item" to="/inventory">Inventory</RouterLink>
+                <RouterLink active-class="active" class="selection-item" to="/">/</RouterLink>
+                <RouterLink active-class="active" class="selection-item" to="/">/</RouterLink>
             </ul>
         </nav>
     </div>
@@ -40,5 +40,10 @@ nav {
     right: 0;
     background: var(--c-light);
     z-index: 100;
+}
+
+.active {
+    text-shadow: 2px 2px 3px var(--c-primary);
+    color: var(--c-secondary);
 }
 </style>
