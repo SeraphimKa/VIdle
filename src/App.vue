@@ -3,16 +3,9 @@
 import NavBar from './components/NavBar.vue'
 
 //Vue tools
-import { onMounted } from 'vue'
 import { RouterView } from 'vue-router'
 
-//utils
-import loadStores from './utils/loadStores'
 
-
-onMounted(() => {
-  loadStores()
-})
 </script>
 
 <template>

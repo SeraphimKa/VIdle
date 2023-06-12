@@ -1,11 +1,30 @@
 <script setup>
+//vue tools
+import { onMounted } from 'vue'
 //components
 import Upgrade from './UpgradeCard.vue'
 
 //data
 import upgrades from '@/data/upgrades.json'
 
+//stores
+import { usePointsStore } from '../stores/points';
+import { useUpgradesStore } from '../stores/upgrades';
+const pointsStore = usePointsStore();
+const upgradesStore = useUpgradesStore();
 
+//utils
+import upgradeEffects from '../utils/upgradeEffects';
+import loadStores from '../utils/loadStores';
+
+onMounted(() => {
+    loadStores[0]
+    loadStores[1]
+    upgradesStore.upgrades.map((upgrade) => {
+        upgrade.bought === true &&
+            upgradeEffects[upgrade.id]()
+    })
+})
 </script>
 
 

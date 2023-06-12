@@ -11,7 +11,6 @@ const pointsStore = usePointsStore();
 
 export default {
   1: function upgrade1() {
-    console.log("inin");
     pointsStore.autoClicker();
   },
 
