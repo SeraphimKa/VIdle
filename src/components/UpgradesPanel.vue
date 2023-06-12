@@ -1,6 +1,6 @@
 <script setup>
 //components
-import Upgrade from './Upgrade.vue'
+import Upgrade from './UpgradeCard.vue'
 
 //data
 import upgrades from '@/data/upgrades.json'
