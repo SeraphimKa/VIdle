@@ -3,7 +3,7 @@
 import Navbar from './components/Navbar.vue'
 
 //Vue tools
-import { RouterView, RouterLink } from 'vue-router'
+import { RouterView } from 'vue-router'
 
 </script>
 

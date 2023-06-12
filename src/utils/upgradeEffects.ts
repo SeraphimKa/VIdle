@@ -1,3 +1,5 @@
+// Apply upgrade effects to point store
+
 import { usePointsStore } from "../stores/points";
 
 const pointsStore = usePointsStore();

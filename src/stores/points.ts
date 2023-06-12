@@ -12,6 +12,11 @@ export const usePointsStore = defineStore("points", () => {
     localStorage.points = points.value;
   };
 
+  const reduce = (amount: number) => {
+    points.value -= amount;
+    localStorage.points = points.value;
+  };
+
   const autoClicker = (tspeed: Ref<number> = speed) => {
     autoTimer.value = setInterval(() => {
       increment();
@@ -26,5 +31,5 @@ export const usePointsStore = defineStore("points", () => {
     }
   );
 
-  return { points, volume, speed, autoClicker, increment };
+  return { points, volume, speed, increment, reduce, autoClicker };
 });

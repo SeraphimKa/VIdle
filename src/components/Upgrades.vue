@@ -13,7 +13,7 @@ import upgrades from '@/data/upgrades.json'
     <div
         class="upgrades-container flex gap-4 text-primary text-6xl bg-light shadow shadow-secondary m-5 p-2 rounded-lg min-w-[100px] min-h-[100px] text-center">
         <div v-for="(upgrade) in upgrades" :key="upgrade.id" class="upgrade-loop">
-            <Upgrade :upgrade="upgrade" />
+            <Upgrade :upgradeID="upgrade.id" />
         </div>
     </div>
 </template>

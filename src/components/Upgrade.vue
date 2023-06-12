@@ -1,21 +1,33 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 //utils
 import upgradeEffects from '../utils/upgradeEffects';
 
+//stores
+import { usePointsStore } from '../stores/points';
+import { useUpgradesStore } from '../stores/upgrades';
+const pointsStore = usePointsStore();
+const upgradesStore = useUpgradesStore();
+
 //props
-const { upgrade } = defineProps<{
-    upgrade: {
-        id: number,
-        name: string,
-        description: string,
-        price: number
-        bought: boolean
-    }
+const { upgradeID } = defineProps<{
+    upgradeID: number
 }>();
 
+//types
+import type { Upgrade } from '../types';
+
+const upgrade = ref(upgradesStore.upgrades.find(upgrade => upgrade.id === upgradeID) as Upgrade);
+
+
 const handleUpgrade = () => {
-    upgrade.bought = true
-    upgradeEffects[upgrade.id]()
+    console.log(pointsStore.points >= upgrade.value.price)
+    if (pointsStore.points >= upgrade.value.price) {
+        pointsStore.reduce(upgrade.value.price);
+        upgrade.value.bought = true //update local value
+        upgradesStore.setBought(upgradeID, true) //update upgrade store
+        upgradeEffects[upgrade.value.id]() //update upgrade effects
+    }
 }
 
 </script>

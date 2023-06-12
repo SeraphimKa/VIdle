@@ -5,15 +5,26 @@ import Upgrades from '@/components/Upgrades.vue'
 
 //Vue tools
 import { onMounted } from 'vue'
-import { usePointsStore } from '@/stores/points'
 
+//stores
+import { usePointsStore } from '@/stores/points'
+import { useUpgradesStore } from '@/stores/upgrades'
+
+//data
+import upgrades from '@/data/upgrades.json'
 
 const pointsStore = usePointsStore()
-
+const upgradesStore = useUpgradesStore()
 
 onMounted(() => {
     if (localStorage.points) {
         pointsStore.points = parseInt(localStorage.points)
+    }
+    if (localStorage.upgrades) {
+        upgradesStore.upgrades = JSON.parse(localStorage.upgrades)
+    }
+    else {
+        localStorage.upgrades = JSON.stringify(upgrades)
     }
 })
 
